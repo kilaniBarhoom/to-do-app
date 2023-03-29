@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="web-icon" href="assets/images/WebIcon.jpg">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Shantell Sans' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans Arabic' rel='stylesheet'>
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <title>Life-List</title>
+</head>
+<body>
+    <div class="hide-pass">
+        <div class="hide-pass-input-header">
+            <span>  أدخل كلمة المرور للدخول إلى المهمات المخفية: لمحة : (123)</span>
+        </div>
+        <form id="pass-hide-form">
+        <div class="pass-input">
+            <input type="password" name="hidden-pass" id="hidden-pass-input">
+            <label for="hidden-pass-input" class="pass-label">كلمة السر</label>
+        </div>
+        <div class="hide-pass-input-btn">
+            <button type="submit" class="btn btn-secondary">إدخال</button>
+            <button type="reset" onclick="hideShowPass()" class="btn btn-secondary">إلغاء</button>
+
+        </div>
+    </form>
+    </div>
+
+
+    <div class="hide-pass2">
+        <div class="hide-pass-input-header2">
+            <span>  أدخل كلمة المرور لإخفاء المهمة.<br> لمحة : (123)</span>
+        </div>
+        <form id="pass-hide-form2">
+        <div class="pass-input2">
+            <input type="password" name="hidden-pass2" id="hidden-pass-input2">
+            <label for="hidden-pass-input2" class="pass-label2">كلمة السر</label>
+        </div>
+        <div class="hide-pass-input-btn2">
+            <button type="submit" class="btn btn-secondary">إدخال</button>
+            <button type="reset" onclick="hideShowPass2()" class="btn btn-secondary">إلغاء</button>
+        </div>
+    </form>
+    </div>
+<div class="overlay" onclick="hide_password_block()">
+  
+</div>
+    <div class="backTXT" 
+    style="position: absolute; font-size: 150px; letter-spacing: 10px; margin: auto auto; display: flex;
+     align-items: center; width: 100%; text-align: center; justify-content: center;
+      z-index: -100; top: 40vh; opacity: 50%;"
+    
+    >
+        <span 
+        style=" color: #fff;
+        text-shadow:
+          0 0 5px #fff,
+          0 0 10px #fff,
+          0 0 20px #fff,
+          0 0 40px #0ff,
+          0 0 80px #0ff,
+          0 0 90px #0ff,
+          0 0 100px #0ff,
+          0 0 150px #0ff;
+          "
+        >𝐿𝒾𝒻𝑒𝐿𝒾𝓈𝓉</span>
+    </div>
+    <div class="container">
+        <div class="title">
+            <h1>LifeList</h1>
+            
+        </div>
+        <div class="incontainer">
+            
+            <div class="inpForm">
+                <form id="taskForm">
+                <input type="date" name="" id="date" >    
+                <input type="text"  id="taskinput" placeholder="لديك مهمة جديدة ؟">
+                <input type="submit" name="submit-task" id="tsk-sub-btn" value="إضافة">
+                </form>
+            </div>
+            
+            
+            <ul>
+                <li id="navele1"><a href=""  >المهمات</a><span id="noftasks">0</span></li>
+                <li id="navele2"><a href="" >المهمات المخفية</a><span id="nofarctasks">0</span></li>
+                <li id="navele3"><a href="">ترتيب :</a> 
+                    <select name="sort" id="sortingOptions">
+                        <option value="تاريخ الإضافة">تاريخ الإضافة</option>
+                        <option value="تاريخ الإستحقاق "> تاريخ الإستحقاق </option>
+                  </select></li>
+            </ul>
+            
+            
+            <div id="tasks">
+                
+               </div>
+            <div id="Arch-tasks">
+                
+           </div>
+        </div>
+    </div>
+    
+    <div class="overlay">
+
+    </div>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="assets/js/Donot-open.js"></script>
+</body>
+</html>
