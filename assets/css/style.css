@@ -556,25 +556,25 @@ svg {
     align-items: start;
     z-index: 100;
     animation-name: showpass;
-    animation-duration: 1s;
+    animation-duration: 0.7s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: 1;
-    transition: animation 1s ease-in-out;
+    transition: animation 0.7s ease-in-out;
     
 }
 
 @keyframes showpass {
     0%{
-        opacity: 0;
+        scale: 0;
     }
-    40%{
-        opacity: 0.4;
+    /* 40%{
+        scale: 0.4;
     }
     80%{
-        opacity: 0.8;
-    }
+        scale: 0.8;
+    } */
     100%{
-        opacity: 1;
+        scale: 1;
     }
 }
 
@@ -665,11 +665,10 @@ svg {
     align-items: start;
     z-index: 100;
     animation-name: showpass;
-    animation-duration: 1s;
+    animation-duration: 0.7s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: 1;
-    transition: animation 1s ease-in-out;
-    
+    transition: animation 0.7s ease-in-out;    
 }
 
 
@@ -708,6 +707,7 @@ svg {
 
 .pass-label2
 {
+  pointer-events: none;
     position: relative;
     top: 0;
     right: 0;

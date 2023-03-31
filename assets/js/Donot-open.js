@@ -1,3 +1,7 @@
+   
+    
+    
+    
     let firstform = document.getElementById('taskForm');
     let inp = document.querySelector('#taskinput')
     let tasks = document.getElementById('tasks')
@@ -13,17 +17,23 @@
  let HiddenTaskArray = []  
 
 
+
  function getTasksFromLocalStorage()
  {
     let tasksInLocal = JSON.parse(localStorage.getItem("tasks"))
     let hiddenInLocal = JSON.parse(localStorage.getItem("hiddenTasks"))
     TaskArray = tasksInLocal ?? []
     HiddenTaskArray = hiddenInLocal ?? []
-
  }
+
+ 
  getTasksFromLocalStorage();
  noftasks.innerHTML = TaskArray.length
  nofarctasks.innerHTML = HiddenTaskArray.length
+ taskCounter = TaskArray.length
+ HiddenCounter = HiddenTaskArray.length
+
+
 function reFillTask()
 {
   let iteration = 0
@@ -86,6 +96,9 @@ function reFillTask()
     tasks.innerHTML += TheAcualTask;
     iteration++;  
    }
+   
+
+
 }
 
 
@@ -152,17 +165,19 @@ function reFillHiddenTask()
     iteration++;  
     
    }
+   
+
 }
- 
 
 
 reFillTask();
+reFillHiddenTask()
+
 
 
    document.getElementById("date").addEventListener("change", function() {
     taskdate = this.value;
 });
-
 
 
 
@@ -240,7 +255,7 @@ function submitForm(taskvalue,taskdate)
       "dateCreated":new Date()
 });
 reFillTask()
-  
+  storeToLocalStorage()
 }
 
 
@@ -409,6 +424,17 @@ navele1.addEventListener('click',function(e){
 navele2.addEventListener('click',function(e){
   
   e.preventDefault();
+  if(HiddenTaskArray.length == 0 )
+    {
+      document.querySelector('.hide-pass').style.display = 'none'
+      document.querySelector('.overlay').style.display = 'none'
+      document.getElementById('pass-hide-form').reset()
+      Swal.fire({
+        icon: 'error',
+        title: 'لا يوجد مهمات مخفية',
+      })
+      return
+    }
   if(HiddenTasks.style.display == 'grid')
   {
     return;
@@ -421,22 +447,12 @@ navele2.addEventListener('click',function(e){
 
     e.preventDefault();
     let passVal = document.getElementById('hidden-pass-input')
+    
 
     if(passVal.value == '123')
     {
 
-      if(HiddenTaskArray.length == 0)
-      {
-        Swal.fire({
-          icon: 'error',
-          title: 'لا يوجد مهمات مخفية',
-        })
-        document.querySelector('.hide-pass').style.display = 'none'
-  document.querySelector('.overlay').style.display = 'none'
-  document.getElementById('pass-hide-form').reset()
-        
-      }
-      else{
+      
         reFillHiddenTask()
       document.querySelector('.hide-pass').style.display = 'none'
   document.querySelector('.overlay').style.display = 'none'
@@ -449,7 +465,7 @@ navele2.addEventListener('click',function(e){
     navele2.style.paddingLeft = '15px'
     navele1.style.borderBottom = '2px solid #f7f7f700'
     navele2.style.borderBottom = '2px solid #fff'
-      }
+      
   }
   
   
@@ -459,10 +475,9 @@ navele2.addEventListener('click',function(e){
       title: ' كلمة السر غير صحيحة !!',
     })
     document.getElementById('pass-hide-form').reset()
+    document.getElementById('pass-hide-form').focus()
   }
 
-  
- 
   
   })
 
@@ -478,7 +493,7 @@ function hideSelectedTask(it)
 
   document.querySelector('.hide-pass2').style.display = 'flex'
   document.querySelector('.overlay').style.display = 'block'
-  document.getElementById('hidden-pass-input').focus()
+  document.getElementById('hidden-pass-input2').focus()
   document.getElementById('pass-hide-form2').reset()
   document.getElementById('pass-hide-form2').addEventListener('submit',(e)=>{
 
@@ -550,6 +565,7 @@ function hideSelectedTask(it)
         icon: 'error',
         title: ' كلمة السر غير صحيحة !!',
       })
+      document.getElementById('hidden-pass-input2').focus()
     }
 
     
@@ -733,5 +749,6 @@ function storeToLocalStorage()
   localStorage.setItem("tasks",taskString);
   localStorage.setItem("hiddenTasks",hiddenTaskString);
 }
+
 
 
