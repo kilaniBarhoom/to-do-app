@@ -44,43 +44,42 @@ function reFillTask()
       let TheAcualTask =
       `
       <div class="task"  >
-      <div class="task-header">
+      <div class="task-header ${ TaskArray[iteration].checked?"task-header-checked":""}">
           <span class="tasknumber">${task.number}</span>
           <span class="taskdate"> 
   
           ${task.date}
-                
+               
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
               <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
               </svg>
           </span>
       </div>
       <div class="content">
-          <textarea   class="text" readonly cols="34.5" rows="3.5" class="text"> ${task.text} </textarea>
+          <textarea   class="text ${ TaskArray[iteration].checked?"txtareackeck":""} " readonly cols="34.5" rows="3.5" class="text"> ${task.text} </textarea>
       </div>
       <div class="buttons">
-            <div onclick="hello( ${iteration} )" class="checkbox-wrapper-31 black-toolip" data-toggle="toolip"   title="إتمام" data-placement="top">
-            <input type="checkbox" id="check" />
-            <svg viewBox="0 0 35.6 35.6">
-              <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
-              <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
-              <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
-            </svg>
+
+            <div onclick="checkTaskArray( ${iteration} )" class="checkbox ${ TaskArray[iteration].checked?"styledCheckbox":""} black-toolip" data-toggle="toolip"   title="إتمام" data-placement="top">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                </svg>
           </div>
+
           <div class= "three-btns">
-          <button onclick="deleteSelectedTask( ${iteration} )" class="delete black-toolip" data-toggle="toolip"  title="حذف" data-placement="top">
+          <button onclick="deleteSelectedTask( ${iteration} )" class="delete ${ TaskArray[iteration].checked?"deletecheck":""} black-toolip" data-toggle="toolip"  title="حذف" data-placement="top">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
               <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
               </svg>
           </button>
   
-          <button onclick="editSelectedTask( ${iteration} ) " class="edit black-toolip" data-toggle="toolip"  title="تعديل" data-placement="top" >
+          <button onclick="editSelectedTask( ${iteration} ) " class="edit ${ TaskArray[iteration].checked?"editcheck":""} black-toolip" data-toggle="toolip"  title="تعديل" data-placement="top" >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen-fill" viewBox="0 0 16 16">
               <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001z"/>
               </svg>
           </button>
   
-          <button onclick="hideSelectedTask( ${iteration} ) " class="hide black-toolip" data-toggle="toolip"  title="إخفاء" data-placement="top">
+          <button onclick="hideSelectedTask( ${iteration} ) " class="hide ${ TaskArray[iteration].checked?"hidecheck":""} black-toolip" data-toggle="toolip"  title="إخفاء" data-placement="top">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-slash-fill" viewBox="0 0 16 16">
             <path d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7.029 7.029 0 0 0 2.79-.588zM5.21 3.088A7.028 7.028 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474L5.21 3.089z"/>
             <path d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829l-2.83-2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12-.708.708z"/>
@@ -112,7 +111,7 @@ function reFillHiddenTask()
       let TheHiddenTask =
       `
       <div class="task">
-      <div class="task-header">
+      <div class="task-header  ${ HiddenTaskArray[iteration].checked?"task-header-checked":""}">
           <span class="tasknumber">${task.number}</span>
           <span class="taskdate"> 
   
@@ -124,31 +123,28 @@ function reFillHiddenTask()
           </span>
       </div>
       <div class="content">
-          <textarea  class="text" readonly cols="34.5" rows="3.5" class="text"> ${task.text} </textarea>
+          <textarea  class="text ${ HiddenTaskArray[iteration].checked?"txtareackeck":""}" readonly cols="34.5" rows="3.5" class="text"> ${task.text} </textarea>
       </div>
       <div class="buttons">
-            <div onclick="hello( ${iteration} )" class="checkbox-wrapper-31 black-toolip" data-toggle="toolip"  title="إتمام" data-placement="top">
-            <input type="checkbox" id="check" />
-            <svg viewBox="0 0 35.6 35.6">
-              <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
-              <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
-              <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
-            </svg>
+          <div onclick="checkHiddenTaskArray( ${iteration} )" class="checkbox ${ HiddenTaskArray[iteration].checked?"styledCheckbox":""} black-toolip" data-toggle="toolip"   title="إتمام" data-placement="top">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+              <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+              </svg>
           </div>
           <div class= "three-btns">
-          <button onclick="deleteSelectedTask( ${iteration} )" class="delete black-toolip" data-toggle="toolip"  title="حذف" data-placement="top">
+          <button onclick="deleteSelectedTask( ${iteration} )" class="delete ${ HiddenTaskArray[iteration].checked?"deletecheck":""} black-toolip" data-toggle="toolip"  title="حذف" data-placement="top">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
               <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
               </svg>
           </button>
   
-          <button onclick="editSelectedTask( ${iteration} ) " class="edit black-toolip" data-toggle="toolip"  title="تعديل" data-placement="top" >
+          <button onclick="editSelectedTask( ${iteration} ) " class="edit ${ HiddenTaskArray[iteration].checked?"editcheck":""} black-toolip" data-toggle="toolip"  title="تعديل" data-placement="top" >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen-fill" viewBox="0 0 16 16">
               <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001z"/>
               </svg>
           </button>
   
-          <button onclick="unhideSelectedTask( ${iteration} ) " class="hide black-toolip" data-toggle="toolip"  title="إظهار" data-placement="top">
+          <button onclick="unhideSelectedTask( ${iteration} ) " class="hide ${ HiddenTaskArray[iteration].checked?"hidecheck":""} black-toolip" data-toggle="toolip"  title="إظهار" data-placement="top">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
               <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
               <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
@@ -201,17 +197,10 @@ firstform.addEventListener('submit',(s)=>{
        })
        return
    }
-
-else if(taskdate==null || taskdate == "") 
-   {
-     Swal.fire({
-         icon: 'error',
-         title: 'أدخل تاريخ المهمة',
-       })
-       return
-   }
-
-else if(Date.parse(taskdate)-Date.parse(new Date())<0)
+   if(taskdate==null || taskdate == "")
+    taskdate = "! Untill Completed"
+if(taskdate!=null || taskdate != "")
+ if(Date.parse(taskdate)-Date.parse(new Date())<0)
 {
  Swal.fire({
      icon: 'info',
@@ -287,10 +276,7 @@ function deleteSelectedTask(it)
               for(let i=it ; i < TaskArray.length ; i++)
                   TaskArray[i].number--;
           
-             if(taskCounter-1 > 0)
-                taskCounter--
-
-             else taskCounter = 0
+             taskCounter = TaskArray.length
 
              reFillTask()
              noftasks.innerHTML = TaskArray.length
@@ -359,7 +345,7 @@ function editSelectedTask(it)
 
       document.querySelectorAll('.delete')[it].style.transform = 'scale(1)'
       document.querySelectorAll('.hide')[it].style.transform = 'scale(1)'
-      document.querySelectorAll('.checkbox-wrapper-31')[it].style.transform = 'scale(1)'
+      document.querySelectorAll('.checkbox')[it].style.transform = 'scale(1)'
       textarea.setAttribute('readonly','readonly')
       document.querySelectorAll('.buttons')[it].style.gap = '12px'
 
@@ -384,7 +370,7 @@ document.querySelectorAll('.edit')[it].style.gap = '5px'
 
 document.querySelectorAll('.delete')[it].style.transform = 'scale(0)'
 document.querySelectorAll('.hide')[it].style.transform = 'scale(0)'
-document.querySelectorAll('.checkbox-wrapper-31')[it].style.transform = 'scale(0)'
+document.querySelectorAll('.checkbox')[it].style.transform = 'scale(0)'
 
 document.querySelectorAll('.edit')[it].innerHTML = 'حفظ'
 document.querySelectorAll('.edit')[it].style.width = '60px'
@@ -722,24 +708,18 @@ else if(HiddenTasks.style.display == 'grid')
 // local srtorage
 
 
-function hello(it)
+function checkTaskArray(it)
 {
-  if(document.querySelectorAll('#check')[it].checked)
-  {
-    (document.querySelectorAll('.task')[it]).querySelector(".task-header").style.backgroundColor = '#7df048';
-    (document.querySelectorAll('.task')[it]).querySelector(".task-header").style.opacity = '0.8';
-    (document.querySelectorAll('.task')[it]).querySelector("textarea").style.opacity = '0.5';
-    (tasks.style.display == 'grid')? TaskArray[it].checked = true:HiddenTaskArray[it].checked = true
-  }
+  TaskArray[it].checked = !TaskArray[it].checked
+  reFillTask()
+  storeToLocalStorage()
+}
 
-  else{
-    (document.querySelectorAll('.task')[it]).querySelector(".task-header").style.backgroundColor = '#fff';
-    (document.querySelectorAll('.task')[it]).querySelector(".task-header").style.opacity = '1';
-    (document.querySelectorAll('.task')[it]).querySelector("textarea").style.opacity = '1';
-    (tasks.style.display == 'grid')? TaskArray[it].checked = false:HiddenTaskArray[it].checked = false
-  }
- 
-     
+function checkHiddenTaskArray(it)
+{
+  HiddenTaskArray[it].checked = !HiddenTaskArray[it].checked
+  reFillHiddenTask()
+  storeToLocalStorage()
 }
 
 function storeToLocalStorage()
