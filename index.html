@@ -50,12 +50,10 @@
   
 </div>
     <div class="backTXT" 
-    style="position: absolute; font-size: 150px; letter-spacing: 10px; margin: auto auto; display: flex;
-     align-items: center; width: 100%; text-align: center; justify-content: center;
-      z-index: -100; top: 40vh; opacity: 50%;"
+
     
     >
-        <span 
+        <span class="backLogo"
         style=" color: #fff;
         text-shadow:
           0 0 5px #fff,
@@ -84,17 +82,17 @@
                 </form>
             </div>
             
-            
-            <ul>
-                <li id="navele1"><a href=""  >المهمات</a><span id="noftasks">0</span></li>
-                <li id="navele2"><a href="" >المهمات المخفية</a><span id="nofarctasks">0</span></li>
-                <li id="navele3"><a href="">ترتيب :</a> 
-                    <select name="sort" id="sortingOptions">
-                        <option value="تاريخ الإضافة">تاريخ الإضافة</option>
-                        <option value="تاريخ الإستحقاق "> تاريخ الإستحقاق </option>
-                  </select></li>
-            </ul>
-            
+            <div class="utilities">
+                <ul>
+                    <li id="navele1"><a href=""  >المهمات</a><span id="noftasks">0</span></li>
+                    <li id="navele2"><a href="" >المهمات المخفية</a><span id="nofarctasks">0</span></li>
+                    <li id="navele3"><a href="">ترتيب :</a> 
+                        <select name="sort" id="sortingOptions">
+                            <option value="تاريخ الإضافة">تاريخ الإضافة</option>
+                            <option value="تاريخ الإستحقاق "> تاريخ الإستحقاق </option>
+                    </select></li>
+                </ul>
+            </div>
             
             <div id="tasks">
                 
@@ -108,6 +106,8 @@
     <div class="overlay">
 
     </div>
+
+    
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
