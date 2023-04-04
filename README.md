@@ -5,28 +5,28 @@ In this project I have created a Simple yet effective ToDo list website that all
 ### Utilities & Features
 - Resposive
 
-      The wesite is designed in a responsive design way to deal with all screen sizes and types.
+      The website is designed in a responsive design way to deal with all screen sizes and types.
   
 - Hide / Show Task
-  - User can hide his selected tass to hide it from other users that access the same website.
+  - User can hide selected tasks to hide it from other users that access the same website.
   - user can Show the hidden tasks
   
--Hosting
+- Hosting
 
     The Website is lanched to Github and Netlify to be viewed and used.
     
--Track Changes
+- Track Changes
 
      Website's changes are being tracked using Git and GitHib.
      
 - Completed / Uncompleted Tasks
 
-You can mark the task as completed or non-complete. The completed tasks will light up green to be visualised as completed.
+     You can mark the task as completed or non-complete. The completed tasks will light up green to be visualised as completed.
 
 
 ### Contributors
 
-  The project was designed, implemented and completed by me ( Ibrahim Kilani ), All thanks to Dr. Thaer Thaher and also THANK the course instructors ( Mohamed Mansour, Jihad Abu Zuhri and Dalia Alawneh ) for putting such work for us in this course. The contents of this corse are so valuable and I wholey enjoy the materila you gave us ....
+  The project was designed, implemented and completed by me ( Ibrahim Kilani ), All thanks to Dr. Thaer Thaher and I also want to hardly THANK the course instructors ( Mohamed Mansour, Jihad Abu Zuhri and Dalia Alawneh ) for putting such work for us in this course. The contents of this corse are so valuable and I wholey enjoy the materials you gave us ....
   
   
   # Thank you so much <3
